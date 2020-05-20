@@ -1,5 +1,4 @@
 
-
 <#macro page>
     <html lang="en">
     <head>
@@ -7,6 +6,7 @@
             Car park
         </title>
         <link rel="stylesheet" href="/static/style.css">
+        <link rel="shortcut icon" href="https://img2.freepng.ru/20180325/bre/kisspng-bus-public-transport-timetable-transit-pass-bus-5ab77e1f9e40d6.5220986815219748156482.jpg" type="image/jpg">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,15 +15,26 @@
     </head>
     <body>
 
-    <div class="container mt-5">
         <#nested >
-    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     </body>
     </html>
+    <style>
+        body {
+            background-image: linear-gradient(90deg, #b6bdcc, #FFFFFF);
+        }
+        .container {
+            font-size: 2.0rem;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
 </#macro>
