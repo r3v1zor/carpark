@@ -2,24 +2,16 @@
 
 <@page>
     <div>
-        <form method="get" action="/">
-            <p><select id="selectForm">
+        <form class="form-inline" method="post" action="/login">
+                <label for="selectForm">Выберите режим: </label>
+                <select id="selectForm" name="param">
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
-                </select></p>
-            <p><button type="button" name="button" onclick="redirect()">Login</button></p>
+                </select>
+
+            <button class="btn-primary" type="submit">Login</button>
         </form>
     </div>
-    <script>
-        let strPage = null;
 
-        function redirect() {
-            let e = document.getElementById("selectForm");
-            strPage = e.options[e.selectedIndex].value;
-
-            console.log('some: ' + strPage)
-            window.location.href = 'localhost:8080/' + strPage
-        }
-    </script>
 </@page>
 

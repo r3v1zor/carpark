@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/buscompanies")
+@RequestMapping("/bus-companies")
 public class BusCompanyController {
     private final BusCompanyRepository busCompanyRepository;
 
