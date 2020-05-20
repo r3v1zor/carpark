@@ -25,7 +25,7 @@ public class BusStopController {
 
         model.addAttribute("busStops", busStops);
 
-        return "busstops";
+        return "busStops";
     }
 
     @PostMapping("add")

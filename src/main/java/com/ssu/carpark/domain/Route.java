@@ -20,4 +20,8 @@ public class Route {
     @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     private List<BusStop> busStops;
+
+    public Route(String name) {
+        this.name = name;
+    }
 }

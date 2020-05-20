@@ -14,38 +14,66 @@
             </form>
         </div>
 
-        <div>
-            <form action="/routes/addbusstop" method="post">
-                <select><#list busStops as busStop><option value=""></option></#list></select>
-                <p><button type="submit">Добавить</button></p>
+    <#if routes?size != 0>
+        <div class="form-group row">
+            <form class="form-inline" action="/routes/addBusStop" method="post">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="route" class="form-control-plaintext">Название маршрута</label>
+                    <select class="form-control" name="route">
+                        <#list routes as route>
+                            <option value="${route.id}">${route.name}</option>
+                        </#list>
+                    </select>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="route" class="form-control-plaintext">Автобусная остановка</label>
+                    <select class="form-control" name="busStop">
+                        <#list busStops as busStop>
+                            <option value="${busStop.id}">${busStop.name}</option>
+                        </#list>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Добавить</button>
             </form>
         </div>
+    </#if>
 
-        <div>
-            <h3>Bus Companies:</h3>
+
+    <div>
+        <h3>Routes:</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Название маршрута</th>
+                <th scope="col">Остановки</th>
+                <th scope="col">#</th>
+                <th scope="col">#</th>
+            </tr>
+            </thead>
+            <tbody>
             <#list routes as route>
-                <div id="div-${route.id}">
-                    Название маршрута: ${route.name}
-                    Остановки:
-                    <#list route.busStops as busStop>
-                        <div id="r-${route.id}-bs-${busStop.id}">
-                            Название: ${busStop.name}
-                            <form action="/routes/deleteBusStop" method="post">
-                                <input type="hidden" name="routeId" value="${route.id}">
-                                <input type="hidden" name="busStopId" value="${busStop.id}">
-                                <button type="submit">X</button>
-                            </form>
-                        </div>
-                    </#list>
-                    <form action="/routes/delete" method="post">
-                        <input type="hidden" value="${route.id}" name="id">
-                        <button type="submit">X</button>
-                    </form>
-                    <button onclick="update(${route.id}, ${route.name})">Update</button>
-                </div>
+                <tr id="tr-${route.id}">
+                    <td>${route.name}</td>
+                    <td>
+                        <#list route.busStops as busStop>
+                            <p>${busStop.name}</p>
+                        </#list>
+                    </td>
+                    <td><button class="btn btn-primary btn-sm" onclick="updateBusStops(${busStop.id}, '${busStop.name}', '${busStop.address}')">Обновить</button></td>
+                    <td>
+                        <form action="/busstops/delete" method="post">
+                            <input type="hidden" value="${busStop.id}" name="id">
+                            <button type="submit" class="btn btn-primary btn-sm">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
             </#list>
-        </div>
+            </tbody>
+        </table>
+
+
     </div>
+
     <script>
         function update(id, name) {
             let row = document.getElementById('div-' + id)

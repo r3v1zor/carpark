@@ -14,7 +14,7 @@ public class Bus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne
     @PrimaryKeyJoinColumn
     private BusCompany busCompany;
 

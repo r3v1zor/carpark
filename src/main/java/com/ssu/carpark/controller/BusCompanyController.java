@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/buscompanies")
+@RequestMapping("/bus-companies")
 public class BusCompanyController {
     private final BusCompanyRepository busCompanyRepository;
 
@@ -30,12 +30,12 @@ public class BusCompanyController {
     @PostMapping("add")
     public String add(BusCompany busCompany) {
         busCompanyRepository.save(busCompany);
-        return "redirect:/buscompanies";
+        return "redirect:/bus-companies";
     }
 
     @PostMapping("delete")
     public String delete(Integer id) {
         busCompanyRepository.deleteById(id);
-        return "redirect:/buscompanies";
+        return "redirect:/bus-companies";
     }
 }
