@@ -28,35 +28,27 @@ public class RouteController {
     public String getAll(Model model) {
         List<Route> routes = routeRepository.findAll();
         List<BusStop> busStops = busStopRepository.findAll();
-
         model.addAttribute("busStops", busStops);
         model.addAttribute("routes", routes);
-
         return "routes";
     }
 
     @PostMapping("add")
     public String add(String name) {
         Route route = new Route(name);
-
         routeRepository.save(route);
-
         return "redirect:/routes";
     }
 
     @PostMapping("addBusStop")
     public String addBusStop(Route route, BusStop busStop) {
         List<BusStop> busStops = route.getBusStops();
-
         if (busStops == null) {
             busStops = new ArrayList<>();
         }
-
         busStops.add(busStop);
         route.setBusStops(busStops);
-
         routeRepository.save(route);
-
         return "redirect:/routes";
     }
 }

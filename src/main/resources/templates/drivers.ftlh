@@ -34,7 +34,7 @@
         </div>
 
         <div>
-            <h3>Таблица водителей:</h3>
+            <h3>Водители:</h3>
             <#if drivers?size != 0>
                 <table class="table">
                     <thead>
@@ -76,8 +76,8 @@
                 '<input form="my-form" type="hidden" value="' + id + '" name="id">' +
                 '<td><input form="my-form" type="text" class="form-control" id="firstName" name="firstName" value="' + firstName +'"></td>' +
                 '<td><input form="my-form" type="text" class="form-control" id="lastName" name="lastName" value="' + lastName + '"></td>' +
-                '<td><input form="my-form" type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"></td>' +
-                '<td><input form="my-form" type="date" class="form-control" id="startWorkingDay" name="startWorkingDay"></td>' +
+                '<td><input required form="my-form" type="date" class="form-control" id="dateOfBirth" name="dateOfBirth"></td>' +
+                '<td><input required form="my-form" type="date" class="form-control" id="startWorkingDay" name="startWorkingDay"></td>' +
                 '<td><button form="my-form" class="btn btn-primary btn-sm" type="submit">Обновить</button></td>' +
                 '<td>' +
                 '<form action="/drivers/delete" method="post">' +

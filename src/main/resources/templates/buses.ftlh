@@ -38,7 +38,7 @@
         </div>
 
     <div>
-        <h3>Buses:</h3>
+        <h3>Автобусы:</h3>
         <#if buses?size != 0>
             <table class="table">
                 <thead>

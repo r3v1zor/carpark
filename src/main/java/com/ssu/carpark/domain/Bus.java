@@ -2,6 +2,7 @@ package com.ssu.carpark.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +18,7 @@ public class Bus {
     @ManyToOne
     @PrimaryKeyJoinColumn
     private BusCompany busCompany;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfLastRepair;
     private String mark;
     private String registrationNumber;

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -30,25 +28,14 @@ public class BusController {
     public String findAll(Model model) {
         List<Bus> buses = busRepository.findAll();
         List<BusCompany> busCompanies = busCompanyRepository.findAll();
-
         model.addAttribute("buses", buses);
         model.addAttribute("busCompanies", busCompanies);
-
         return "buses";
     }
 
     @PostMapping("add")
-    public String add(Integer id, BusCompany busCompany, String mark,
-                      String registrationNumber, String dateOfLastRepair) throws ParseException {
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = simpleDateFormat.parse(dateOfLastRepair);
-
-        Bus bus = new Bus(busCompany, mark, registrationNumber, date);
-        bus.setId(id);
-
+    public String add(Bus bus) throws ParseException {
         busRepository.save(bus);
-
         return "redirect:/buses";
     }
 

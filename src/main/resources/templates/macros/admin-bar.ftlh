@@ -13,19 +13,29 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/buses">Автобусы</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/drivers">Водители</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/driver-reviews">Отзывы на водителей</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/busstops">Остановки</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/routes">Маршруты</a>
-                </li><li class="nav-item">
-                    <a class="nav-link" href="/voyages">Поездки</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/voyages">Рейсы</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/repair-orders">Запросы на ремонт</a>
-                </li><li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/repair-companies">Ремонтные компании</a>
-                </li></ul>
+                </li>
+            </ul>
         </div>
     </nav>
 </#macro>

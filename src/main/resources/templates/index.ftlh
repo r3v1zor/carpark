@@ -8,7 +8,7 @@
             </ul>
     </nav>
     <div class="container">
-        <form class="form-inline" method="post" action="/login" style="max-width: 800px">
+        <form class="form-inline" method="post" action="/login">
             <div style="padding-right: 5px">
                 <label style="padding-right: 5px" for="selectForm">Выберите режим: </label>
                 <select id="selectForm" name="param" >

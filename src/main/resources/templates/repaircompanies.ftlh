@@ -6,7 +6,7 @@
     </@page>
     <div class="container">
         <div class="form-group row">
-            <form class="form-inline" action="/bus-companies/add" method="post">
+            <form class="form-inline" action="/repair-companies/add" method="post">
                 <div class="form-group mx-sm-3">
                     <label for="companyName" class="form-control-plaintext">Название компании</label>
                     <input required type="text" class="form-control" id="companyName" name="name">
@@ -18,8 +18,8 @@
         </div>
 
         <div>
-            <h3>Автобусные компании:</h3>
-            <#if busCompanies?size != 0>
+            <h3>Ремонтные компании:</h3>
+            <#if repairCompanies?size != 0>
                 <table class="table">
                     <thead>
                     <tr>
@@ -29,13 +29,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <#list busCompanies as busCompany>
-                        <tr id="tr-${busCompany.id}">
-                            <td>${busCompany.name}</td>
-                            <td><button class="btn btn-primary btn-sm" onclick="update(${busCompany.id}, '${busCompany.name}')">Обновить</button></td>
+                    <#list repairCompanies as repairCompany>
+                        <tr id="tr-${repairCompany.id}">
+                            <td>${repairCompany.name}</td>
+                            <td><button class="btn btn-primary btn-sm" onclick="update(${repairCompany.id}, '${repairCompany.name}')">Обновить</button></td>
                             <td>
-                                <form action="/bus-companies/delete" method="post">
-                                    <input type="hidden" value="${busCompany.id}" name="id">
+                                <form action="/repair-companies/delete" method="post">
+                                    <input type="hidden" value="${repairCompany.id}" name="id">
                                     <button type="submit" class="btn btn-primary btn-sm">Удалить</button>
                                 </form>
                             </td>
@@ -49,17 +49,17 @@
 </@page>
 
 <script>
-    function update(id, busCompanyName) {
+    function update(id, repairCompanyName) {
         let row = document.getElementById('tr-' + id)
 
-        row.innerHTML = '<form id="my-form" action="/bus-companies/add" method="post"></form>' +
-            '<td><input type="text" form="my-form" name="name" value="' + busCompanyName +'"></td>' +
+        row.innerHTML = '<form id="my-form" action="/repair-companies/add" method="post"></form>' +
+            '<td><input type="text" form="my-form" name="name" value="' + repairCompanyName +'"></td>' +
             '<td><input type="hidden" form="my-form" value="' + id +'" name="id">' +
             '<button type="submit" form="my-form" class="btn btn-primary btn-sm">Обновить</button>' +
             '</td>' +
             '' +
             '<td>' +
-            '<form action="/bus-companies/delete" method="post">' +
+            '<form action="/repair-companies/delete" method="post">' +
             '<input type="hidden" value="' + id +'" name="id">' +
             '<button type="submit" class="btn btn-primary btn-sm">Удалить</button>' +
             '</form>' +

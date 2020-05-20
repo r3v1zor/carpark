@@ -22,16 +22,13 @@ public class BusStopController {
     @GetMapping
     public String findAll(Model model) {
         List<BusStop> busStops = busStopRepository.findAll();
-
         model.addAttribute("busStops", busStops);
-
         return "busStops";
     }
 
     @PostMapping("add")
     public String add(BusStop busStop) {
         busStopRepository.save(busStop);
-
         return "redirect:/busstops";
     }
 

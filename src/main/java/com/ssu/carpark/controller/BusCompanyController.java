@@ -22,7 +22,6 @@ public class BusCompanyController {
     @GetMapping
     public String getAll(Model model) {
         List<BusCompany> busCompanies = busCompanyRepository.findAll();
-
         model.addAttribute("busCompanies", busCompanies);
         return "buscompanies";
     }
